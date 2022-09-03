@@ -253,7 +253,7 @@ class TaskRunner:
             for script in value:
                 split = shlex.split(script)
                 cmd = split[0]
-                subargs = split[1:] + args  # type: ignore
+                subargs = split[1:] + list(args)
                 code = self.run(cmd, subargs, options)
                 if code != 0:
                     return code
